@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title justify-content-center style="text-align: center;">
+      {{ 'ASSET_OVERVIEW' | translate }}
+    </ion-title>
+    <ion-icon ios="ios-more" md="md-more" float-right style="padding-right: 5px"></ion-icon>
+    <ion-icon ios="ios-star-outline" md="md-star-outline" float-right style="padding-right: 15px"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<div class="subHeader">
+  <div class="subHeader1"> 
+    <ion-toolbar color="primary" style="padding: 20px;">
+      <ion-title>
+        <ion-row >
+          <ion-col>
+            <ion-row justify-content-center style="font-size: 22px;">{{item.coin}}</ion-row>
+            <ion-row justify-content-center style="font-size: 14px;">{{item.code}}</ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-title>
+    </ion-toolbar>
+    <div class="line"></div>
+  </div>
+  <div class="subHeader2">
+    <ion-row>
+      <ion-col>
+        {{ 'PRICE_PER_UNIT' | translate }}
+      </ion-col>
+      <ion-col class="col-value">
+        {{item.pricePerUnit}} CHF
+      </ion-col>
+    </ion-row >
+    <div class="line"></div>
+    <ion-row>
+      <ion-col>
+        {{ 'TOTAL_UNITS' | translate }}
+      </ion-col>
+      <ion-col class="col-value">
+        {{item.totalUnits}}
+      </ion-col>
+    </ion-row>
+    <div class="line"></div>
+    <ion-row>
+      <ion-col>
+        {{ 'TOTAL_AMOUNT' | translate }}
+      </ion-col>
+      <ion-col class="col-value">
+        {{item.totalAmount}} CHF
+      </ion-col>
+    </ion-row>
+  </div>
+</div>
+
+<ion-content>
+  <div class="div2">
+    <div (click)="expandItem(i)" *ngFor="let i of item.info" style="padding-left:15px;">
+      <div>
+        <h5>{{i.title}}</h5>
+      </div>
+  
+      <div style="padding-bottom:10px;">
+        <app-expandable expandHeight="100px" [expanded]="i.expanded">
+            {{i.desc}}
+        </app-expandable>
+      </div>
+      <div class="line"></div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar style="text-align: center">
+    <ion-button shape="round" fill="outline" color="danger" style="margin-right: 50px;" >{{ 'SELL' | translate }}</ion-button>
+    <ion-button shape="round" fill="outline" color="secondary" id="btnBuy">{{ 'BUY' | translate }}</ion-button>
+  </ion-toolbar>
+</ion-footer>
