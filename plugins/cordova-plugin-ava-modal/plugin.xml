@@ -1,1 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-plugin-ava-modal"
+    version="1.0.0">
+    <name>ModalWebView</name>
+    <description>Cordova modal WebView plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,modal,webview</keywords>
 
+    <js-module src="www/ModalWebView.js" name="ModalWebView">
+        <clobbers target="ModalWebView" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ModalWebView">
+                <param name="ios-package" value="AVAModalWebView" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/AVAModalWebView.h" />
+        <source-file src="src/ios/AVAModalWebView.m" />
+        <header-file src="src/ios/AVAModalWebViewController.h" />
+        <source-file src="src/ios/AVAModalWebViewController.m" />
+        <!-- framework src="WebKit.framework" / -->
+    </platform>
+</plugin>
